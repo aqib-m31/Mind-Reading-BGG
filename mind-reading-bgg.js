@@ -12,8 +12,8 @@ $w.onReady(function () {
 */
 // This function takes selected input fields are arguments and returns a string having users birthday or INVALID DATE for wrong user INPUT
 export function findBirthday(birthdayInput, birthmonthInput) {
-    let birthdayCardNumbers = birthdayInput.value;
-    let birthmonthCardNumbers = birthmonthInput.value;
+    let birthdayCardNumbers = birthdayInput.value.trim();
+    let birthmonthCardNumbers = birthmonthInput.value.trim();
     if (birthdayCardNumbers == "" || birthmonthCardNumbers == "") {
         return 'Please enter both values';
     }
