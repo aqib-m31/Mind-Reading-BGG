@@ -1,22 +1,28 @@
-// Velo API Reference: https://www.wix.com/velo/reference/api-overview/introduction
-
-let ans = $w('#answer');
-let birthdayCNo = $w('#birthdayCNo');
-let birthmonthCNo = $w('#birthmonthCNo');
-
-$w('#find').onClick(() => {
-    let birthdayCNoValue = birthdayCNo.value;
-    let birthmonthCNoValue = birthmonthCNo.value;
-    if (birthdayCNoValue == "" || birthmonthCNoValue == "") {
-        ans.text = "Please enter both values";
-        return;
+// Filename: public/mind-reading-bgg.js
+// Code written in public files is shared by your site's
+// Backend, page code, and site code environments.
+// The following code demonstrates how to call the add
+// function from your site's page code or site code.
+/*
+import {add} from 'public/mind-reading-bgg.js'
+$w.onReady(function () {
+    let sum = add(6,7);
+    console.log(sum);
+});
+*/
+// This function takes selected input fields are arguments and returns a string having users birthday or INVALID DATE for wrong user INPUT
+export function findBirthday(birthdayInput, birthmonthInput) {
+    let birthdayCardNumbers = birthdayInput.value;
+    let birthmonthCardNumbers = birthmonthInput.value;
+    if (birthdayCardNumbers == "" || birthmonthCardNumbers == "") {
+        return 'Please enter both values';
     }
-    let dayPowers = birthdayCNoValue.split(" ");
+    let dayPowers = birthdayCardNumbers.split(" ");
     let birthday = 0;
     for (let i = 0; i < dayPowers.length; i++) {
         birthday += Math.pow(2, parseInt(dayPowers[i].trim()));
     }
-    let monthPowers = birthmonthCNoValue.split(" ");
+    let monthPowers = birthmonthCardNumbers.split(" ");
     let birthMonth = 0;
     for (let i = 0; i < monthPowers.length; i++) {
         birthMonth += Math.pow(2, parseInt(monthPowers[i].trim()));
@@ -24,137 +30,86 @@ $w('#find').onClick(() => {
     switch (birthMonth) {
     case 1:
         if (birthday > 0 && birthday < 32) {
-            ans.text = `Your birthday is on ${birthday} January`;
-            // console.log(`Your birthday is on ${birthday} January`);
-            break;
+            return`Your birthday is on ${birthday} January`;
         } else {
-            // console.log("Invalid date");
-            ans.text = "Invalid date";
-            break;
+            return "Invalid date";
         }
     case 2:
         if (birthday > 0 && birthday < 29) {
-            ans.text = `Your birthday is on ${birthday} February`;
-            // console.log(`Your birthday is on ${birthday} February`);
-            break;
+            return `Your birthday is on ${birthday} February`;
         } else if (birthday == 29) {
-            ans.text = `Your birthday is on ${birthday} February (Leap Year)`;
-            // console.log(`Your birthday is on ${birthday} February (Leap Year)`);
-            break;
+            return `Your birthday is on ${birthday} February (Leap Year)`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 3:
         if (birthday > 0 && birthday < 32) {
-            ans.text = `Your birthday is on ${birthday} March`;
-            // console.log(`Your birthday is on ${birthday} March`);
-            break;
+            return `Your birthday is on ${birthday} March`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 4:
         if (birthday > 0 && birthday < 31) {
-            ans.text = `Your birthday is on ${birthday} April`;
-            // console.log(`Your birthday is on ${birthday} April`);
-            break;
+            return `Your birthday is on ${birthday} April`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 5:
         if (birthday > 0 && birthday < 32) {
-            ans.text = `Your birthday is on ${birthday} May`;
-            // console.log(`Your birthday is on ${birthday} May`);
-            break;
+            return `Your birthday is on ${birthday} May`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 6:
         if (birthday > 0 && birthday < 31) {
-            ans.text = `Your birthday is on ${birthday} June`;
-            // console.log(`Your birthday is on ${birthday} June`);
-            break;
+            return `Your birthday is on ${birthday} June`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 7:
         if (birthday > 0 && birthday < 32) {
-            ans.text = `Your birthday is on ${birthday} July`;
-            // console.log(`Your birthday is on ${birthday} July`);
-            break;
+            return `Your birthday is on ${birthday} July`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 8:
         if (birthday > 0 && birthday < 32) {
-            ans.text = `Your birthday is on ${birthday} August`;
-            // console.log(`Your birthday is on ${birthday} August`);
-            break;
+            return `Your birthday is on ${birthday} August`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 9:
         if (birthday > 0 && birthday < 31) {
-            ans.text = `Your birthday is on ${birthday} September`;
-            // console.log(`Your birthday is on ${birthday} September`);
-            break;
+            return `Your birthday is on ${birthday} September`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 10:
         if (birthday > 0 && birthday < 32) {
-            ans.text = `Your birthday is on ${birthday} October`;
-            // console.log(`Your birthday is on ${birthday} October`);
-            break;
+            return `Your birthday is on ${birthday} October`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 11:
         if (birthday > 0 && birthday < 31) {
-            ans.text = `Your birthday is on ${birthday} November`;
-            // console.log(`Your birthday is on ${birthday} November`);
-            break;
+            return `Your birthday is on ${birthday} November`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     case 12:
         if (birthday > 0 && birthday < 32) {
-            ans.text = `Your birthday is on ${birthday} December`;
-            // console.log(`Your birthday is on ${birthday} December`);
-            break;
+            return `Your birthday is on ${birthday} December`;
         } else {
-            ans.text = "Invalid date";
-            // console.log("Invalid date");
-            break;
+            return "Invalid date";
         }
     default:
-        ans.text = "Invalid month";
-        // console.log("Invalid month");
-        break;
+        return "Invalid month"
     }
-});
+}
 
-$w('#reset').onClick(() => {
-    birthmonthCNo.value = "";
-    birthdayCNo.value = "";
-    ans.text = "Can I Guess Your Birthday?"
-});
+// This function resets the values of the input fields and the answer
+export function reset(birthdayInput, birthmonthInput, answer) {
+    birthdayInput.value = '';
+    birthmonthInput.value = '';
+    answer.text = 'Can I Guess Your Birthday?';
+}
